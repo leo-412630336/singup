@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>會員註冊</h1>
+        <form id="signupForm" novalidate>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required
+                       aria-describedby="nameError">
+                <p id="nameError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required
+                       aria-describedby="emailError">
+                <p id="emailError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">手機號碼</label>
+                <input type="tel" id="phone" name="phone" required
+                       pattern="[0-9]{10}"
+                       aria-describedby="phoneError">
+                <p id="phoneError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="password">密碼</label>
+                <input type="password" id="password" name="password" required
+                       minlength="8"
+                       aria-describedby="passwordError passwordStrength">
+                <div class="password-strength-container">
+                    <div class="password-strength-bar"></div>
+                    <p id="passwordStrength" class="password-strength-text"></p>
+                </div>
+                <p id="passwordError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">確認密碼</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required
+                       aria-describedby="confirmPasswordError">
+                <p id="confirmPasswordError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label>興趣 (至少選擇一項)</label>
+                <div id="interestsContainer" class="interests-container" 
+                     aria-describedby="interestsError">
+                    <div class="interest-tag" data-interest="運動">運動</div>
+                    <div class="interest-tag" data-interest="閱讀">閱讀</div>
+                    <div class="interest-tag" data-interest="音樂">音樂</div>
+                    <div class="interest-tag" data-interest="旅遊">旅遊</div>
+                    <div class="interest-tag" data-interest="美食">美食</div>
+                    <div class="interest-tag" data-interest="攝影">攝影</div>
+                </div>
+                <p id="interestsError" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" name="terms" required
+                           aria-describedby="termsError">
+                    <label for="terms">我同意服務條款</label>
+                </div>
+                <p id="termsError" class="error-message"></p>
+            </div>
+
+            <div class="form-group button-group">
+                <button type="reset" id="resetBtn" class="reset-button">
+                    重設
+                </button>
+                <button type="submit" id="submitBtn" class="submit-button">
+                    <span class="button-text">註冊</span>
+                    <span class="loading-spinner"></span>
+                </button>
+            </div>
+        </form>
+        </form>
+
+        <div id="successMessage" class="success-message hidden">
+            註冊成功！
+        </div>
+    </div>
+    <script src="signup_form.js"></script>
+</body>
+</html>
